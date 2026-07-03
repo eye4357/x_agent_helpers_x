@@ -439,6 +439,7 @@ Renderer conformance hardening:
 - Assert renderer summary metadata projections only when they are derived from an exact generated local part already fixed by the same public fake fixture; changing the metadata itself is a design decision.
 - Assert audit or comparison report byte, normalized-text, and structure parity when the public fake source artifact is intentionally copied from the generated artifact; pin representative summary keys from the exact local fixture, not assumed default counts.
 - Assert human-readable audit report rows only after checking the rendered scalar format; Markdown may render booleans, paths, and dictionaries differently than Python literals.
+- Assert report metadata paths by deriving them from the same path constants or normalization helpers as the reporter; do not assume relative paths when the reporter records resolved paths.
 - Treat generated package sidecar metadata as assertable public coverage only when IDs, schema references, and payloads are fixed and contain no private content.
 - Treat generated theme or styling package parts as assertable public coverage only when the serializer output is fixed; selecting or changing the visual theme is a design decision.
 - Treat template choices, default behavior changes, schema changes, privacy boundaries, and compatibility strategy as design decisions, not medium assertion-hardening work.
