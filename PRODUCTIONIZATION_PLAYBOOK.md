@@ -433,6 +433,7 @@ Renderer conformance hardening:
 - Use public fake fixtures that exercise the same renderer paths as private evidence.
 - Add exact generated artifact assertions only when inputs, default package flags, serializers, ordering, IDs, timestamps, and relationship targets are deterministic.
 - Prefer one package part or one renderer surface per slice, then run the narrowest behavior-scoped test before making adjacent edits.
+- Assert exact package manifests only when the enabled package flags and emitted part set are deterministic and already covered by public fake fixtures.
 - Treat generated package sidecar metadata as assertable public coverage only when IDs, schema references, and payloads are fixed and contain no private content.
 - Treat generated theme or styling package parts as assertable public coverage only when the serializer output is fixed; selecting or changing the visual theme is a design decision.
 - Treat template choices, default behavior changes, schema changes, privacy boundaries, and compatibility strategy as design decisions, not medium assertion-hardening work.
