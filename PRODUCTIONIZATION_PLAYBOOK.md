@@ -428,6 +428,13 @@ Coverage targets by project type:
 - Renderer/exporter: stable text output, formatting edge cases, missing data handling, export errors.
 - Web service: route tests, validation errors, auth boundaries, storage isolation, no private data in logs.
 
+Renderer conformance hardening:
+
+- Use public fake fixtures that exercise the same renderer paths as private evidence.
+- Add exact generated artifact assertions only when inputs, default package flags, serializers, ordering, IDs, timestamps, and relationship targets are deterministic.
+- Prefer one package part or one renderer surface per slice, then run the narrowest behavior-scoped test before making adjacent edits.
+- Treat template choices, default behavior changes, schema changes, privacy boundaries, and compatibility strategy as design decisions, not medium assertion-hardening work.
+
 Example test style:
 
 ```python
