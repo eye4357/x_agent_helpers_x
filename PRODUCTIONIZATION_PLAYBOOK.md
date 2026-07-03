@@ -437,6 +437,7 @@ Renderer conformance hardening:
 - Assert content type omissions only when disabled package flags make the absent overrides deterministic and already covered by the package manifest.
 - Assert renderer summary counters from the summary API's semantics and the exact local fixture, not nearby visual intuition or a richer neighboring fixture; for example, body child counts and paragraph element counts may intentionally differ.
 - Assert renderer summary metadata projections only when they are derived from an exact generated local part already fixed by the same public fake fixture; changing the metadata itself is a design decision.
+- Assert audit or comparison report structure parity when the public fake source artifact is intentionally copied from the generated artifact; pin representative summary keys from the exact local fixture, not assumed default counts.
 - Treat generated package sidecar metadata as assertable public coverage only when IDs, schema references, and payloads are fixed and contain no private content.
 - Treat generated theme or styling package parts as assertable public coverage only when the serializer output is fixed; selecting or changing the visual theme is a design decision.
 - Treat template choices, default behavior changes, schema changes, privacy boundaries, and compatibility strategy as design decisions, not medium assertion-hardening work.
