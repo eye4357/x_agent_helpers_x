@@ -23,7 +23,7 @@ Minimum definition:
 - Formatting, linting, typing, tests, and CI are configured.
 - Unit tests mock all dangerous, external, paid, private, network, filesystem-destructive, or machine-mutating boundaries.
 - GitHub Actions runs the same quality gate expected locally.
-- When repeated unauthenticated GitHub REST checks hit rate limits, confirm public CI status from the workflow run page before recording the checkpoint; do not infer success from an in-progress API response.
+- When repeated unauthenticated GitHub REST checks hit rate limits, confirm public CI status from the workflow run page before recording the checkpoint; if the public page serves a stale in-progress snapshot, refresh with a cache-busting query; do not infer success from an in-progress API response.
 - VS Code settings encourage strict Python analysis and pytest discovery.
 - `.gitignore` protects generated files, environments, caches, secrets, and private data.
 - `CHANGE_CONTROL_PACKET.md` records scope, controlled files, changes, validation, rollback, and operator notes.
