@@ -78,6 +78,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - Treat interpreter mismatch as an execution-environment issue, not a signal to weaken test scope.
 - On Windows, do not assume the `py` launcher or a local `3.12` interpreter exists; probe explicitly and, if unavailable, rely on the CI Quality Gates result as the authoritative cross-version check before closing the slice.
 - For CI confirmation, derive the run id from the workflow page and derive the Quality Gates job id from that run page before polling job status; do not guess ids or reuse stale ids from prior runs.
+- For scoped Office audit Markdown assertions, probe rendered report rows in the exact audit code path before adding assertions; values can differ from lower-level structure fixtures (for example, header/footer counts can be `0` in the audit report path).
 
 ## Stop Conditions
 
