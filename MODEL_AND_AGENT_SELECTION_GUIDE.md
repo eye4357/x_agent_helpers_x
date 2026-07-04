@@ -80,6 +80,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - For CI confirmation, derive the run id from the workflow page and derive the Quality Gates job id from that run page before polling job status; do not guess ids or reuse stale ids from prior runs.
 - For scoped Office audit Markdown assertions, probe rendered report rows in the exact audit code path before adding assertions; values can differ from lower-level structure fixtures (for example, header/footer counts can be `0` in the audit report path).
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
+- On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
 
 ## Stop Conditions
 
