@@ -71,6 +71,12 @@ Expected recommendation for that example:
 Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if the controlling code path or next assertion row is unclear and needs read-only reconnaissance first. Avoid GPT 5 mini for unattended execution because the workflow depends on preserving validation, ledger, CI, memory, and clean-state discipline.
 ```
 
+## Execution Hygiene For Python Work
+
+- Before running any Python command in a terminal, configure the workspace Python environment and use its explicit interpreter command prefix.
+- If collection fails with `ModuleNotFoundError` for local modules or missing tools like `pytest`, stop and repair environment selection/dependencies first, then rerun the same validation command.
+- Treat interpreter mismatch as an execution-environment issue, not a signal to weaken test scope.
+
 ## Stop Conditions
 
 Ask for a higher-capability model or explicit human decision before proceeding when the work involves:
