@@ -109,6 +109,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - At `has_custom_xml` family start, declare `expected_docx_has_custom_xml` once and reuse it unchanged across sibling closures for deterministic low-churn diffs.
 - While advancing `has_custom_xml` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `has_custom_xml` comparison 3 closes, continue with the next adjacent metric family in existing structure-key order rather than opening parallel families.
+- At `header_count` family start, declare `expected_docx_header_count` once and reuse it unchanged across sibling closures for deterministic low-churn diffs.
 - In repeated sibling assertion blocks, keep each assertion bound to the matching section variable (`resume_2017_docx_section`, `resume_2023_docx_section`, `resume_2024_docx_section`); cross-binding can mask gaps and undermine deterministic per-sibling closure.
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
