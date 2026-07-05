@@ -101,6 +101,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - Within the active boolean family, keep one expected constant name unchanged across sibling indices (for example `expected_docx_has_web_settings`) to reduce churn and review noise.
 - After the final sibling of `has_web_settings` is closed, hand off directly to the next adjacent boolean family start (`has_footnotes` index `1`) without mixing families.
 - At a new boolean family start, introduce the matching expected constant name immediately (`expected_docx_has_footnotes`) and keep it stable across sibling closures.
+- While progressing through `has_footnotes` siblings, reuse the same expected constant variable without renaming to preserve deterministic review diffs.
 - In repeated sibling assertion blocks, keep each assertion bound to the matching section variable (`resume_2017_docx_section`, `resume_2023_docx_section`, `resume_2024_docx_section`); cross-binding can mask gaps and undermine deterministic per-sibling closure.
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
