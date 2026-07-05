@@ -132,6 +132,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
 - If terminal state intermittently resolves `git` as missing in multi-command runs, switch immediately to the absolute executable path (`C:\Program Files\Git\cmd\git.exe`) for deterministic commit/push closure.
 - Once absolute Git path fallback is activated in a slice, keep using the same absolute invocation form for status/log/push/final checks through slice closure to avoid parser-mode regressions.
+- If post-interrupt parser artifacts reject quoted absolute paths, switch to the short-path executable form (`C:\Progra~1\Git\cmd\git.exe`) for deterministic git status/log/push/rev-parse commands until closure is complete.
 
 ## Stop Conditions
 
