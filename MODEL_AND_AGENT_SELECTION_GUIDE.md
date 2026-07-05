@@ -97,6 +97,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - After closing one boolean family, move to the next adjacent boolean metric family at sibling index `1` and continue deterministic sibling order.
 - While advancing sibling indices within the current boolean family, keep one shared expected constant name for that metric (`expected_docx_has_font_table`) until the family is closed.
 - When closing the final sibling in a metric family, mirror that final-index addition in changelog, release notes, and change-control within the same slice so release docs stay synchronized.
+- After closing a boolean family, advance to the next boolean metric in the existing structure-key order (for example `has_font_table` then `has_web_settings`) before skipping ahead.
 - In repeated sibling assertion blocks, keep each assertion bound to the matching section variable (`resume_2017_docx_section`, `resume_2023_docx_section`, `resume_2024_docx_section`); cross-binding can mask gaps and undermine deterministic per-sibling closure.
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
