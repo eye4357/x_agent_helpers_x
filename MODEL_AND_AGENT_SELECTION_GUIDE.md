@@ -165,6 +165,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - After `numbering_num_ids` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
 - At `page_margins` family start, declare `expected_docx_page_margins` from the rendered contract map for comparison 1 and keep assertion shape explicit.
 - While advancing `page_margins` sibling indices, preserve the same assertion shape but switch to sibling-specific expected maps when rendered margins differ (for example comparison 2 left/right `1800` versus `1440` on adjacent siblings).
+- After `page_margins` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
 - In repeated sibling assertion blocks, keep each assertion bound to the matching section variable (`resume_2017_docx_section`, `resume_2023_docx_section`, `resume_2024_docx_section`); cross-binding can mask gaps and undermine deterministic per-sibling closure.
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
