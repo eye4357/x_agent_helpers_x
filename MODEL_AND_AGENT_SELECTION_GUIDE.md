@@ -209,6 +209,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - While progressing `colored_run_count` siblings, only add the next comparison index assertions and keep constant/value source unchanged to preserve deterministic c1->c2->c3 diffs.
 - At `colored_run_count` comparison 3 closure, hand off immediately to the next adjacent metric family under the same deterministic gate-and-CI closure cadence.
 - When extending DOCX `normalized_text.line_count` sibling coverage, keep the scalar expectation (`1`) fixed across comparisons 1/2/3 and advance one sibling index per slice.
+- At DOCX `normalized_text.line_count` comparison 3 closure, record family completion and hand off to the next adjacent deterministic assertion family with unchanged gate and CI closure standards.
 - In repeated sibling assertion blocks, keep each assertion bound to the matching section variable (`resume_2017_docx_section`, `resume_2023_docx_section`, `resume_2024_docx_section`); cross-binding can mask gaps and undermine deterministic per-sibling closure.
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
