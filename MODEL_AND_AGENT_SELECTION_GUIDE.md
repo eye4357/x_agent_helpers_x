@@ -94,6 +94,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - In repeated sibling assertion blocks, keep each assertion bound to the matching section variable (`resume_2017_docx_section`, `resume_2023_docx_section`, `resume_2024_docx_section`); cross-binding can mask gaps and undermine deterministic per-sibling closure.
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
+- If terminal state intermittently resolves `git` as missing in multi-command runs, switch immediately to the absolute executable path (`C:\Program Files\Git\cmd\git.exe`) for deterministic commit/push closure.
 
 ## Stop Conditions
 
