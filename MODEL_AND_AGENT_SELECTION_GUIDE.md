@@ -217,6 +217,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - While progressing DOCX `normalized_text.sha256` siblings, keep the length contract fixed at `64` and add only the next comparison pair to preserve deterministic one-step diffs.
 - At DOCX `normalized_text.sha256` comparison 3 closure, record family completion and hand off to the next adjacent deterministic assertion family under unchanged local/CI closure rules.
 - For DOCX `normalized_text.sha256` equality-family start, advance sibling comparisons one index at a time while asserting explicit generated/source hash equality per comparison.
+- While progressing DOCX `normalized_text.sha256` equality siblings, add only the next comparison-pair equality assertion to preserve deterministic one-step diffs.
 - In repeated sibling assertion blocks, keep each assertion bound to the matching section variable (`resume_2017_docx_section`, `resume_2023_docx_section`, `resume_2024_docx_section`); cross-binding can mask gaps and undermine deterministic per-sibling closure.
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
