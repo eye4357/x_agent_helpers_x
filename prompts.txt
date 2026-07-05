@@ -1,0 +1,32 @@
+PROMPT PLAYBOOK
+
+Goal
+- Use this file to choose the right prompt quickly and avoid model-switch churn.
+
+Model selection rules
+- Use 5.3 Codex by default for deterministic, no-design, test-hardening glidepath work.
+- Use 5.5 only for genuinely higher-complexity reasoning, architecture tradeoffs, or ambiguous multi-path design decisions.
+- If work can be safely done in 5.3, do not run it on 5.5.
+
+When to use each prompt
+- Use Prompt A when you want execution to continue autonomously in deterministic slices with CI closure.
+- Use Prompt B when you explicitly want 5.5 for hard reasoning and want to stop if downgrade to 5.3 is possible.
+- Use Prompt C when you are handing work back to 5.3 after a 5.5 stop.
+
+Prompt A: 5.3 default execution
+gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.3 codex, continue with deterministic no-design slices, always close local gates and CI, and stop only if there is a true design decision or model/agent-selection risk per the guide
+
+Prompt B: 5.5 escalation only
+gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.5, use this only if the task requires 5.5-level reasoning, and stop if there is any safe downgrade path to 5.3 codex
+
+Prompt C: return-to-5.3 handoff
+resume execution on 5.3 codex now; continue from the last green checkpoint, proceed with the next deterministic no-design slice, capture helper lessons, run full local gates and CI closure, and stop only for true design decisions or model/agent-selection risk
+
+Prompt D: avoid boundary dead-end
+if you hit a readability or scope boundary, do not stop globally; instead propose the next smallest deterministic slice that avoids that boundary, execute it, and continue the glidepath
+
+Quick workflow
+- Start with Prompt A.
+- If truly blocked by high-complexity reasoning, switch to Prompt B.
+- If Prompt B stops due to downgrade possibility, immediately run Prompt C.
+- Use Prompt D to keep momentum when one assertion family is too broad.
