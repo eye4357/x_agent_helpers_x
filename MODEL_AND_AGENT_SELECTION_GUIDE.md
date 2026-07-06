@@ -377,5 +377,5 @@ Ask for a higher-capability model or explicit human decision before proceeding w
 
 When in doubt, use a stronger model for the decision and a cheaper model for the mechanical follow-through after the decision is settled.
 
-- For deterministic XLSX nested `sheets[0]` parity slices, derive the next key from the producer order in `xlsx_sheet_summary` and close one key at a time (current adjacent order after `auto_filter_ref` is `freeze_pane`, then `page_margins`, then `column_widths`) instead of inferring from test-order drift.
+- For deterministic XLSX nested `sheets[0]` parity slices, derive adjacency from `xlsx_sheet_summary` producer order and, if earlier slices skipped keys, continue with the first still-unpaired key before advancing (for the current backlog: `row_count`, then `column_count`, then `styled_cell_count`, then `cell_type_counts`).
 - For focused pytest gates in deterministic slices, require a selector that matches at least one real test (for example an exact `def test_...` fragment) so `-k` does not return `0 selected` and produce a false-green focused check.
