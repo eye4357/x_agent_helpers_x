@@ -170,6 +170,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - At `page_margins` family start, declare `expected_docx_page_margins` from the rendered contract map for comparison 1 and keep assertion shape explicit.
 - While advancing `page_margins` sibling indices, preserve the same assertion shape but switch to sibling-specific expected maps when rendered margins differ (for example comparison 2 left/right `1800` versus `1440` on adjacent siblings).
 - After `page_margins` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
+- After `page_margins` family closure, hand off to `page_size` at comparison `1` by adding explicit generated/source parity first, then close comparisons `2` and `3` in order using the shared expected page-size map.
 - At `page_size` family start, declare `expected_docx_page_size` once from the rendered contract map and reuse it unchanged across sibling closures.
 - While advancing `page_size` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `page_size` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
