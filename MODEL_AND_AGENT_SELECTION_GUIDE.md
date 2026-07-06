@@ -376,3 +376,5 @@ Ask for a higher-capability model or explicit human decision before proceeding w
 - A failed validation whose cause changes the understanding of the controlling code path.
 
 When in doubt, use a stronger model for the decision and a cheaper model for the mechanical follow-through after the decision is settled.
+
+- For deterministic XLSX nested `sheets[0]` parity slices, derive the next key from the producer order in `xlsx_sheet_summary` and close one key at a time (current adjacent order after `auto_filter_ref` is `freeze_pane`, then `page_margins`, then `column_widths`) instead of inferring from test-order drift.
