@@ -247,6 +247,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - Continue nested XLSX `styles` subkey closure in sorted order with one generated/source parity assertion per slice (for example `font_colors` immediately after `fill_fg_colors`).
 - Continue nested XLSX `styles` subkey closure in sorted order with one generated/source parity assertion per slice (for example `font_count` immediately after `font_colors`).
 - Continue nested XLSX `styles` subkey closure in sorted order with one generated/source parity assertion per slice (for example `font_names` immediately after `font_count`).
+- Continue nested XLSX `styles` subkey closure in sorted order with one generated/source parity assertion per slice (for example `italic_font_indexes` immediately after `font_names`).
 - In repeated sibling assertion blocks, keep each assertion bound to the matching section variable (`resume_2017_docx_section`, `resume_2023_docx_section`, `resume_2024_docx_section`); cross-binding can mask gaps and undermine deterministic per-sibling closure.
 - If unauthenticated GitHub REST polling is rate-limited and `gh` is unavailable, confirm run and job completion from the workflow run page HTML (run status plus Quality Gates job status) instead of guessing CI state.
 - On Windows/OneDrive worktrees, `git commit`/`git push` can trigger interactive local object cleanup prompts during auto-maintenance; for unattended slices, run git with `-c gc.auto=0 -c maintenance.auto=false` and prefer path-pinned commands (`git -C <repo> ...`) to avoid shell cwd drift.
