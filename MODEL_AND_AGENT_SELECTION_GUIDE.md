@@ -166,6 +166,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - At `numbering_num_ids` family start, declare `expected_docx_numbering_num_ids` once from the rendered contract list and reuse it unchanged across sibling closures.
 - While advancing `numbering_num_ids` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `numbering_num_ids` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
+- After `numbering_num_ids` family closure, hand off to `page_margins` at comparison `1` with explicit generated/source parity, then close comparisons `2` and `3` using sibling-specific expected maps when rendered margins differ.
 - At `page_margins` family start, declare `expected_docx_page_margins` from the rendered contract map for comparison 1 and keep assertion shape explicit.
 - While advancing `page_margins` sibling indices, preserve the same assertion shape but switch to sibling-specific expected maps when rendered margins differ (for example comparison 2 left/right `1800` versus `1440` on adjacent siblings).
 - After `page_margins` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
