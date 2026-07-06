@@ -258,6 +258,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - Continue nested XLSX `styles` subkey closure in sorted order with one generated/source parity assertion per slice (for example `italic_font_indexes` immediately after `font_names`).
 - After completing the nested XLSX `styles` subkey parity family, continue to the next adjacent DOCX family by adding one generated/source comparison-level parity assertion per slice (for example `underline_run_count` comparison `1` before comparisons `2` and `3`).
 - Continue DOCX `underline_run_count` comparison-level parity closure in adjacent order by adding one generated/source parity assertion per slice (`comparison 2` after `comparison 1`, then `comparison 3`).
+- When a metric already has older parity assertions in the same test, use `git blame` on the local block and close only the active slice lines tied to the latest family commits; avoid assuming historical complete blocks represent the current deterministic progression state.
 - In commit-checks HTML polling, treat `data-conclusion="success"` as non-terminal while `data-job-status` is still `in_progress`; close the slice only when status is `completed`, conclusion is `success`, and a checks success marker is present.
 - Commit checks can remain `in_progress` for extended polling windows; do not escalate or infer failure from duration alone while run/job IDs remain stable and no failure marker appears.
 - After closing DOCX `underline_run_count` comparison-level parity for comparisons `1`, `2`, and `3`, continue to the next adjacent DOCX structure metric family with one generated/source parity assertion per deterministic slice.
@@ -359,7 +360,6 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - If terminal state intermittently resolves `git` as missing in multi-command runs, switch immediately to the absolute executable path (`C:\Program Files\Git\cmd\git.exe`) for deterministic commit/push closure.
 - Once absolute Git path fallback is activated in a slice, keep using the same absolute invocation form for status/log/push/final checks through slice closure to avoid parser-mode regressions.
 - If post-interrupt parser artifacts reject quoted absolute paths, switch to the short-path executable form (`C:\Progra~1\Git\cmd\git.exe`) for deterministic git status/log/push/rev-parse commands until closure is complete.
-- If unauthenticated GitHub API polling returns rate-limit errors (`403`/`429`) and the public Actions listing does not yet surface the new commit message, hold progression on the current slice and keep retrying low-frequency run discovery; do not advance to the next sibling until the current commit has terminal run/job success evidence.
 
 ## Stop Conditions
 
