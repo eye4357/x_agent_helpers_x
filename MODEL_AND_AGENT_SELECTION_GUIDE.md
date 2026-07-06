@@ -174,6 +174,8 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - At `page_size` family start, declare `expected_docx_page_size` once from the rendered contract map and reuse it unchanged across sibling closures.
 - While advancing `page_size` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `page_size` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
+- When adding parity assertions near dict-based expected contracts (for example `page_margins` maps), keep assertions outside the literal block to avoid syntax-break inserts during deterministic single-line patches.
+- After `page_size` family closure, hand off to `paragraph_count` at comparison `1` by adding explicit generated/source parity first, then close comparisons `2` and `3` in order using the shared expected scalar.
 - At `paragraph_count` family start, declare `expected_docx_paragraph_count` once from the rendered scalar contract and reuse it unchanged across sibling closures.
 - While advancing `paragraph_count` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `paragraph_count` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
