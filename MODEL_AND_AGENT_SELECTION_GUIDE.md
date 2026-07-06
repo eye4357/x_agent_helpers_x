@@ -162,6 +162,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - At `numbering_num_count` family start, declare `expected_docx_numbering_num_count` once and reuse it unchanged across sibling closures.
 - While advancing `numbering_num_count` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `numbering_num_count` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
+- After `numbering_num_count` family closure, hand off to `numbering_num_ids` at comparison `1` by adding explicit generated/source parity first, then close comparisons `2` and `3` in order.
 - At `numbering_num_ids` family start, declare `expected_docx_numbering_num_ids` once from the rendered contract list and reuse it unchanged across sibling closures.
 - While advancing `numbering_num_ids` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `numbering_num_ids` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
