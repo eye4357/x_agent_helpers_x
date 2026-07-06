@@ -156,6 +156,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - After `numbering_level_fonts` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
 - At `numbering_level_texts` family start, declare `expected_docx_numbering_level_texts` once using the escaped rendered glyph contract list (for example `["\u2022"]`) and reuse it unchanged across sibling closures.
 - While advancing `numbering_level_texts` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
+- If `numbering_level_texts` comparison 1 already has generated/source parity while comparisons 2 and 3 only have value contracts, close parity in sibling order (`comparison 2` then `comparison 3`) before moving to `numbering_num_count`.
 - After `numbering_level_texts` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
 - At `numbering_num_count` family start, declare `expected_docx_numbering_num_count` once and reuse it unchanged across sibling closures.
 - While advancing `numbering_num_count` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
