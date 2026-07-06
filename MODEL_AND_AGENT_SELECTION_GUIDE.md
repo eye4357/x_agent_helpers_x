@@ -359,6 +359,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - If terminal state intermittently resolves `git` as missing in multi-command runs, switch immediately to the absolute executable path (`C:\Program Files\Git\cmd\git.exe`) for deterministic commit/push closure.
 - Once absolute Git path fallback is activated in a slice, keep using the same absolute invocation form for status/log/push/final checks through slice closure to avoid parser-mode regressions.
 - If post-interrupt parser artifacts reject quoted absolute paths, switch to the short-path executable form (`C:\Progra~1\Git\cmd\git.exe`) for deterministic git status/log/push/rev-parse commands until closure is complete.
+- If unauthenticated GitHub API polling returns rate-limit errors (`403`/`429`) and the public Actions listing does not yet surface the new commit message, hold progression on the current slice and keep retrying low-frequency run discovery; do not advance to the next sibling until the current commit has terminal run/job success evidence.
 
 ## Stop Conditions
 
