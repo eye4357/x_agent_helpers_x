@@ -97,6 +97,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - After closing one boolean family, move to the next adjacent boolean metric family at sibling index `1` and continue deterministic sibling order.
 - While advancing sibling indices within the current boolean family, keep one shared expected constant name for that metric (`expected_docx_has_font_table`) until the family is closed.
 - When closing the final sibling in a metric family, mirror that final-index addition in changelog, release notes, and change-control within the same slice so release docs stay synchronized.
+- When mirrored release bullets use ambiguous wording like `both generated and source` for comparison-based contracts, normalize them to explicit comparison indices (for example `comparison 1`) so deterministic completeness scans remain machine-checkable.
 - After closing a boolean family, advance to the next boolean metric in the existing structure-key order (for example `has_font_table` then `has_web_settings`) before skipping ahead.
 - Within the active boolean family, keep one expected constant name unchanged across sibling indices (for example `expected_docx_has_web_settings`) to reduce churn and review noise.
 - After the final sibling of `has_web_settings` is closed, hand off directly to the next adjacent boolean family start (`has_footnotes` index `1`) without mixing families.
