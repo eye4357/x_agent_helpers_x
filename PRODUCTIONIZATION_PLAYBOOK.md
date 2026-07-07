@@ -7,7 +7,7 @@ It is based on the productionization pattern already used for:
 - `x_get_win_py_x`
 - `x_create_github_repos_x`
 
-Use this document before productionizing `x_create_cv_x` and every future repo.
+Use this document before productionizing future repos.
 
 ## Productionized Means
 
@@ -173,7 +173,7 @@ Private-data rule:
 - Private repo/local ignored folder gets real data.
 - CI must never require real private data.
 
-For projects like `x_create_cv_x`, public source must not include real CV data, raw extraction files, private seed scripts, private zips, private JSON, addresses, emails, phone numbers, or personal history details.
+For projects that process private personal data, public source must not include real private records, raw extraction files, private seed scripts, private archives, private JSON, addresses, emails, phone numbers, or personal history details.
 
 ## Phase 3: `.gitignore`
 
@@ -440,7 +440,7 @@ Renderer conformance hardening:
 - Assert renderer summary metadata projections only when they are derived from an exact generated local part already fixed by the same public fake fixture; changing the metadata itself is a design decision.
 - Assert audit or comparison report byte, normalized-text, and structure parity when the public fake source artifact is intentionally copied from the generated artifact; pin representative summary keys from the exact local fixture, not assumed default counts.
 - Assert human-readable audit report rows only after checking the rendered scalar format; Markdown may render booleans, paths, and dictionaries differently than Python literals.
-- Probe each sibling artifact section before copying an exact row assertion across them; the same metric can intentionally differ between fixtures, such as DOCX page margins for different resume variants.
+- Probe each sibling artifact section before copying an exact row assertion across them; the same metric can intentionally differ between fixtures.
 - Assert report metadata paths by deriving them from the same path constants or normalization helpers as the reporter; do not assume relative paths when the reporter records resolved paths.
 - Treat generated package sidecar metadata as assertable public coverage only when IDs, schema references, and payloads are fixed and contain no private content.
 - Treat generated theme or styling package parts as assertable public coverage only when the serializer output is fixed; selecting or changing the visual theme is a design decision.
@@ -831,7 +831,7 @@ Forbidden:
 - Real private archive contents.
 - Generated private outputs copied into public fixtures.
 
-For `x_create_cv_x`, create fake CV fixtures before CI. The private golden zip can remain local, but CI must validate fake data only.
+For projects with private golden artifacts, create fake fixtures before CI. Private golden artifacts can remain local, but CI must validate fake data only.
 
 ## Phase 18: Documentation Set
 
@@ -1043,48 +1043,19 @@ Release:
 - [ ] Git status reviewed before commit.
 - [ ] GitHub Actions pass after push.
 
-## Applying This To `x_create_cv_x`
+## Repository-Specific Agent Readmes
 
-`x_create_cv_x` needs the standard productionization path plus private-data hardening.
+Keep this playbook repository-agnostic. When a productionization lesson depends on one tool's private-data model, fixture names, generated artifacts, test names, or deterministic glidepath, move that lesson into the target repository's permanent agent readme, such as `AGENTS.md`.
 
-Required next steps:
+Repository-specific agent readmes should capture:
 
-- Keep `data/private/` ignored.
-- Keep `private.zip` out of Git.
-- Keep real seed scripts out of Git.
-- Add fake fixtures for CI.
-- Add `pyproject.toml`.
-- Add `requirements-dev.txt`.
-- Add `.vscode/settings.json`.
-- Add `.github/workflows/ci.yml`.
-- Add tests for factory commands, JSON writing, zip validation, resume record references, and fake fixture rebuilds.
-- Add `CHANGE_CONTROL_PACKET.md`.
-- Add `SECURITY.md` because the project handles private CV data.
-- Consider `CHANGELOG.md` because this is intended as a showcase project.
-- Update README to describe public fake-data flow and private local flow separately.
-- Split the current CLI into modules only if tests and future web/API work benefit from it.
+- Local validation commands and interpreter paths.
+- Tool-specific privacy boundaries.
+- Fake fixture and private artifact rules.
+- Deterministic assertion or release-hardening glidepaths.
+- Known CI, shell, or commit/push closure quirks for that repo.
 
-Special `x_create_cv_x` checks:
-
-- No real CV values in public files.
-- No private archive contents in public tests.
-- CI uses fake CV data only.
-- Validation with real private data remains local and ignored.
-- Public examples demonstrate the model without exposing the real person.
-- README clearly says private seed scripts are local-only.
-
-Recommended initial `x_create_cv_x` test plan:
-
-- `test_init_database_creates_master_profile`
-- `test_add_user_adds_person_record`
-- `test_add_job_adds_job_record`
-- `test_create_resume_writes_resume_file`
-- `test_add_resume_section_orders_sections`
-- `test_add_resume_item_references_master_records`
-- `test_validate_against_zip_passes_for_fake_fixture`
-- `test_validate_against_zip_reports_mismatch`
-- `test_cli_rejects_invalid_json_payload`
-- `test_cli_typed_flags_build_expected_payload`
+Do not copy project-specific checklists back into this playbook.
 
 ## Standard Done Statement
 
