@@ -201,6 +201,7 @@ Use GPT 5.4 or GPT 5.3 Codex with the normal coding agent. Use Explore only if t
 - At `table_grid_widths` family start, declare `expected_docx_table_grid_widths` once from the rendered list contract and reuse it unchanged across sibling closures.
 - While advancing `table_grid_widths` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `table_grid_widths` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
+- At nested-list metric family starts (for example `table_cell_widths`), declare the expected constant with an explicit strict type shape (for example `list[list[list[str]]]`) before adding sibling closures so `mypy --strict` remains deterministic.
 - At `table_paragraph_count` family start, declare `expected_docx_table_paragraph_count` once from the rendered scalar contract and reuse it unchanged across sibling closures.
 - While advancing `table_paragraph_count` sibling indices, keep the same expected constant and assertion shape to preserve deterministic one-step diffs.
 - After `table_paragraph_count` comparison 3 closes, continue with the next adjacent metric family in structure-key order without opening parallel families.
