@@ -15,8 +15,8 @@ When to use each prompt
 Prompt: 5.3 Codex default execution
 gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.3 codex, continue with deterministic no-design slices, always close local gates and CI, and stop only if there is a true design decision or model/agent-selection risk per the guide
 
-Prompt: 5.5 if appropriate
-gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.5, use this only if the task requires 5.5-level reasoning, and stop if there is any safe downgrade path to 5.3 codex
+Prompt: 5.5 if essential
+gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.5, use this if and only if the task requires 5.5-level reasoning, and stop if there is any safe downgrade path to 5.3 codex
 
 Quick workflow
 - Start with 5.3 Codex.
