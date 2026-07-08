@@ -12,8 +12,17 @@ When to use each prompt
 - Use the 5.3 Codex prompt for normal autonomous execution, deterministic slices, local gates, CI closure, and helper-lesson capture.
 - Use the 5.5 prompt only when there is a real 5.5-level reasoning need; if a safe 5.3 downgrade path exists, stop and hand back to 5.3 Codex.
 
-Prompt: 5.3 Codex default execution
+Prompt a1: 5.3 Codex default execution (cautious)
 gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.3 codex, continue with deterministic no-design slices, always close local gates and CI, and stop only if there is a true design decision or model/agent-selection risk per the guide
+
+Prompt a2: 5.3 Codex autonomous execution (no reprompt)
+gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.3 codex, continue with deterministic no-design slices, always close local gates and CI, and stop only if there is a true design decision or model/agent-selection risk per the guide.
+Operate in autonomous execution mode: continue deterministic no-design slices back-to-back without asking for continue, reprompt, or confirmation after each slice.
+For each slice you must: implement the smallest deterministic invariant, update tests/docs/helper lessons, run local gates, commit, push, close CI, and record memory.
+Immediately proceed to the next deterministic no-design slice after successful CI closure.
+Stop only when one of these occurs: (1) a true design decision is required, (2) a model or agent-selection risk is encountered, (3) a hard external blocker occurs (missing credentials/permissions, unavailable external service, or irrecoverable tool failure).
+If stopped, report the exact blocker and the smallest next unblocked action.
+Never skip local gates or CI closure, and never batch unrelated design changes.
 
 Prompt: 5.5 if essential
 gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.5, use this if and only if the task requires 5.5-level reasoning, and stop if there is any safe downgrade path to 5.3 codex
