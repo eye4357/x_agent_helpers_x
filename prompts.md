@@ -1,4 +1,8 @@
-PROMPT PLAYBOOK
+﻿PROMPT PLAYBOOK
+
+Synchronization rule
+- These prompts are elevated as skills guidance for automation behavior.
+- When updating this file, also update MODEL_AND_AGENT_SELECTION_GUIDE.md in the same commit so prompt and skill guidance stay aligned.
 
 Goal
 - Use this file to choose between the default 5.3 Codex execution path and the rare 5.5 escalation path.
@@ -12,17 +16,13 @@ When to use each prompt
 - Use the 5.3 Codex prompt for normal autonomous execution, deterministic slices, full repo-defined local gates, CI closure for the pushed SHA, and helper-lesson capture.
 - Use the 5.5 prompt only when there is a real 5.5-level reasoning need; if a safe 5.3 downgrade path exists, stop and hand back to 5.3 Codex.
 
-Prompt a1: 5.3 Codex default execution (cautious)
-gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.3 codex, continue with deterministic no-design slices, always close full repo-defined local gates and CI for the pushed SHA, and stop only if there is a true design decision or model/agent-selection risk per the guide
-
-Prompt a2: 5.3 Codex autonomous execution (no reprompt)
+Prompt a1: 5.3 Codex default execution (x_trigger_prompt_x compatible)
 gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.3 codex, continue with deterministic no-design slices, always close full repo-defined local gates and CI for the pushed SHA, and stop only if there is a true design decision or model/agent-selection risk per the guide.
-Operate in autonomous execution mode: continue deterministic no-design slices back-to-back without asking for continue, reprompt, or confirmation after each slice.
-For each slice you must: inspect current file contents before editing, implement the smallest deterministic invariant, update tests/docs/helper lessons, run full repo-defined local gates, commit, push, close CI for the pushed SHA, and record memory.
-Immediately proceed to the next deterministic no-design slice after successful CI closure.
-Stop only when one of these occurs: (1) a true design decision is required, (2) a model or agent-selection risk is encountered, (3) a hard external blocker occurs (missing credentials/permissions, unavailable external service, or irrecoverable tool failure).
-If stopped, report the exact blocker and the smallest next unblocked action.
-Never skip full repo-defined local gates or CI closure, never substitute unit tests for the full configured quality gate, and never batch unrelated design changes.
+This prompt is designed for automated reruns via x_trigger_prompt_x. Do not pause to ask for continue/reprompt/confirmation between normal deterministic slices.
+If you encounter work that genuinely requires 5.5-level reasoning (design decision, high-complexity architecture tradeoff, or model-selection risk), stop execution and end your response with the exact stop keyword as the final string:
+HALT NOW
+HALT NOW must be the last string in the response with no trailing text, punctuation, or code block after it.
+If no escalation is needed, do not output HALT NOW.
 
 Local gate means the full configured repo gate, not only tests. For Python repos aligned with x_create_cv_x, that includes pytest, Ruff, Black check, and strict mypy.
 

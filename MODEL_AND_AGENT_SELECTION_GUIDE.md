@@ -2,6 +2,13 @@
 
 Use this guide before development work begins.
 
+## Prompt And Skills Synchronization
+
+- Prompt policy is mirrored in prompts.md and this guide.
+- If one is changed, update the other in the same commit.
+- For x_trigger_prompt_x automation, the 5.3 prompt should run deterministic no-design slices without pause/reprompt prompts.
+- If escalation to 5.5 is required, the assistant response must end with HALT NOW as the final string with no trailing text.
+
 Keep this guide repository-agnostic. Put tool-specific lessons, metric names, fixture details, and project glidepaths in that repository's permanent agent readme, such as `AGENTS.md`.
 
 ## Required Pre-Development Question
