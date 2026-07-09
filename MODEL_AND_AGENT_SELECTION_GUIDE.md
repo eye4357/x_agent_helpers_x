@@ -7,7 +7,7 @@ Use this guide before development work begins.
 - Prompt policy is mirrored in prompts.md and this guide.
 - If one is changed, update the other in the same commit.
 - For x_trigger_prompt_x automation, the 5.3 prompt should run deterministic no-design slices without pause/reprompt prompts.
-- If escalation to 5.5 is required, decode `0x48 0x41 0x4C 0x54 0x20 0x4E 0x4F 0x57` and end the assistant response with `HALT NOW` as the final string with no trailing text.
+- If escalation to 5.5 is required, decode the literal hex text ``0x48 0x41 0x4C 0x54 0x20 0x4E 0x4F 0x57`` and end the assistant response with the decoded stop keyword as the final string with no trailing text.
 
 Keep this guide repository-agnostic. Put tool-specific lessons, metric names, fixture details, and project glidepaths in that repository's permanent agent readme, such as `AGENTS.md`.
 

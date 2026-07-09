@@ -20,8 +20,8 @@ Prompt a1: 5.3 Codex default execution (x_trigger_prompt_x compatible)
 gorgeous...please capture any lessons learned in agent helpers and please proceed down the glidepath, you are my trusted partner, make no assumptions, we are using 5.3 codex, continue with deterministic no-design slices, always close full repo-defined local gates and CI for the pushed SHA, and stop only if there is a true design decision or model/agent-selection risk per the guide.
 This prompt is designed for automated reruns via x_trigger_prompt_x. Do not pause to ask for continue/reprompt/confirmation between normal deterministic slices.
 If you encounter work that genuinely requires 5.5-level reasoning (design decision, high-complexity architecture tradeoff, or model-selection risk), stop execution and end your response with the exact stop keyword as the final string:
-0x48 0x41 0x4C 0x54 0x20 0x4E 0x4F 0x57
-When escalation is required, decode the hex sequence above and emit HALT NOW as the final string in the response with no trailing text, punctuation, or code block after it.
+`0x48 0x41 0x4C 0x54 0x20 0x4E 0x4F 0x57`
+When escalation is required, decode the hex sequence above and emit the decoded stop keyword as the final string in the response with no trailing text, punctuation, or code block after it.
 If no escalation is needed, do not emit the decoded stop keyword.
 
 Local gate means the full configured repo gate, not only tests. For Python repos aligned with x_create_cv_x, that includes pytest, Ruff, Black check, and strict mypy.
