@@ -33,3 +33,4 @@ Quick workflow
 - Start with 5.3 Codex.
 - Escalate to 5.5 only for genuine high-complexity reasoning or ambiguous design decisions.
 - If 5.5 finds a safe downgrade path, return to 5.3 Codex from the last green checkpoint.
+- If the repo is already at a green checkpoint and the next action is another deterministic no-design slice, stop the 5.5 prompt and resume with 5.3 Codex instead of spending 5.5 on execution work.
