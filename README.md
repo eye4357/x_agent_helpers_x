@@ -4,6 +4,7 @@ Python project.
 
 ## Operational Lessons Learned
 
+- In chat-composer focus verification, avoid immediate duplicate clicks on the same candidate point; use a single click plus a short UIA re-check to reduce accidental text selection and visible cursor jump.
 - When `gh run watch` renders no output, close CI deterministically by querying exact run metadata with `gh run view --json databaseId,headSha,status,conclusion,name` or `gh api repos/<owner>/<repo>/actions/runs/<run_id>` and validating `headSha` matches the pushed commit.
 - For deterministic CI closure logs, capture both run id and head SHA in the same step so run-to-commit binding remains explicit in evidence.
 - For ordinal-token test discovery, remember code identifiers use underscore form (for example, `ninety_fifth`) while docs use hyphenated text (for example, `ninety-fifth`).
