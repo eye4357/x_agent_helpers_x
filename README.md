@@ -85,3 +85,4 @@ Python project.
 - When adjacent token mirror lines use inconsistent escape rendering after external edits, follow the most recent local-series format for the next additive bullet to preserve deterministic continuity without doing broad style rewrites.
 - When invariant tests are already ahead of governed mirrors, treat the next deterministic slice as mirror-only adjacency (single next ordinal in docs/governance) instead of backfilling multiple ordinals at once.
 - If `gh run watch` shows all jobs green but omits a final completion line, confirm closure with `gh api` on the same run id and require `status=completed` plus `conclusion=success`.
+- Treat job-level `Complete job` lines in `gh run watch` as near-final but still verify run-level completion once via API because status propagation can lag briefly.
