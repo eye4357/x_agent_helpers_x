@@ -84,3 +84,4 @@ Python project.
 - If a governed mirror file is externally edited between deterministic slices (for example AGENTS token wrappers), normalize that drift in the same adjacent slice before gates so test/docs/governance stay ordinally aligned at commit time.
 - When adjacent token mirror lines use inconsistent escape rendering after external edits, follow the most recent local-series format for the next additive bullet to preserve deterministic continuity without doing broad style rewrites.
 - When invariant tests are already ahead of governed mirrors, treat the next deterministic slice as mirror-only adjacency (single next ordinal in docs/governance) instead of backfilling multiple ordinals at once.
+- If `gh run watch` shows all jobs green but omits a final completion line, confirm closure with `gh api` on the same run id and require `status=completed` plus `conclusion=success`.
