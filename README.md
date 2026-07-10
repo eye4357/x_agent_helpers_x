@@ -1,83 +1,14 @@
 # x_agent_helpers_x
-Python project
 
-Operational lessons learned
-- For post-boundary increments, continue the underscore/hyphen split consistently (`one_hundred_first` in code and `one-hundred-first` in governance docs).
-- Keep numeric-slice naming monotonic across code and docs (`..._first`, `..._second`, etc.) so adjacent lexical transitions remain deterministic and reviewable.
-- Preserve deterministic adjacent growth by confirming each new token literal is exactly one nibble longer than the prior slice before committing.
-- At one-hundred-plus ordinals, verify the code test name advances by exactly one lexical step (`..._third` to `..._fourth`) while docs mirror the same step in hyphenated form.
-- For ongoing one-hundred-plus slices, keep a quick ordinal checklist (`third` -> `fourth` -> `fifth`) to prevent lexical skips between code and governance docs.
-- Keep one-hundred-plus ordinal checklists extendable (`... -> fifth -> sixth`) so adjacent deterministic slices can continue without renaming drift.
-- Extend the ordinal checklist as each adjacent slice lands (`... -> sixth -> seventh`) to keep code and doc naming progression synchronized.
-- Continue extending ordinal continuity checks (`... -> seventh -> eighth`) so deterministic naming drift is caught before commit.
-- Keep extending ordinal continuity checks (`... -> eighth -> ninth`) so one-step deterministic progression remains explicit in reviews.
-- Keep ordinal continuity checklists advancing (`... -> ninth -> tenth`) so post-boundary transitions stay deterministic and reviewable.
-- Keep ordinal continuity checklists advancing (`... -> tenth -> eleventh`) so adjacent deterministic naming remains monotonic after hundred-boundary transitions.
-- Continue extending ordinal continuity checklists (`... -> eleventh -> twelfth`) to keep each adjacent deterministic slice lexically explicit.
-- Continue ordinal continuity checklist growth (`... -> twelfth -> thirteenth`) so each deterministic adjacent increment remains auditable.
-- Keep ordinal continuity checklist growth explicit (`... -> thirteenth -> fourteenth`) to reduce naming drift in deterministic adjacent slices.
-- Keep ordinal continuity checklist growth explicit (`... -> fourteenth -> fifteenth`) so adjacent deterministic naming remains monotonic as nibble-token hardening advances.
-- Keep ordinal continuity checklist growth explicit (`... -> fifteenth -> sixteenth`) so adjacent deterministic naming and token growth stay synchronized in each additive slice.
-- Keep ordinal continuity checklist growth explicit (`... -> sixteenth -> seventeenth`) so adjacent deterministic naming, docs, and token length remain step-locked.
-- Keep ordinal continuity checklist growth explicit (`... -> seventeenth -> eighteenth`) so adjacent deterministic naming and governance mirroring remain one-step consistent.
-- Keep ordinal continuity checklist growth explicit (`... -> eighteenth -> nineteenth`) so deterministic naming progression and token-length mirroring stay auditably adjacent.
-- Keep ordinal continuity checklist growth explicit (`... -> nineteenth -> twentieth`) so deterministic naming and nibble-length increments remain one-step coupled across code and governance docs.
-- Keep ordinal continuity checklist growth explicit (`... -> twentieth -> twenty-first`) so deterministic adjacent slices preserve lexical order and token-length coupling.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-first -> twenty-second`) so deterministic adjacent naming and token-length growth remain synchronized across code and docs.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-second -> twenty-third`) so deterministic adjacent naming, token growth, and governance mirroring remain monotonic.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-third -> twenty-fourth`) so deterministic adjacent naming and token-length growth remain auditable at each slice.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-fourth -> twenty-fifth`) so deterministic adjacent naming and token-length growth remain strictly one-step across code and governance mirrors.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-fifth -> twenty-sixth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-sixth -> twenty-seventh`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-seventh -> twenty-eighth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-eighth -> twenty-ninth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> twenty-ninth -> thirtieth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirtieth -> thirty-first`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-first -> thirty-second`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-second -> thirty-third`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-third -> thirty-fourth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-fourth -> thirty-fifth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-fifth -> thirty-sixth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-sixth -> thirty-seventh`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-seventh -> thirty-eighth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-eighth -> thirty-ninth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> thirty-ninth -> fortieth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fortieth -> forty-first`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-first -> forty-second`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-second -> forty-third`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-third -> forty-fourth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-fourth -> forty-fifth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-fifth -> forty-sixth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-sixth -> forty-seventh`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-seventh -> forty-eighth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-eighth -> forty-ninth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> forty-ninth -> fiftieth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fiftieth -> fifty-first`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-first -> fifty-second`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-second -> fifty-third`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-third -> fifty-fourth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-fourth -> fifty-fifth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-fifth -> fifty-sixth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-sixth -> fifty-seventh`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-seventh -> fifty-eighth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-eighth -> fifty-ninth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> fifty-ninth -> sixtieth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixtieth -> sixty-first`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-first -> sixty-second`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-second -> sixty-third`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-third -> sixty-fourth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-fourth -> sixty-fifth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-fifth -> sixty-sixth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-sixth -> sixty-seventh`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-seventh -> sixty-eighth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-eighth -> sixty-ninth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> sixty-ninth -> seventieth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> seventieth -> seventy-first`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> seventy-first -> seventy-second`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> seventy-second -> seventy-third`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> seventy-third -> seventy-fourth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> seventy-fourth -> seventy-fifth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> seventy-fifth -> seventy-sixth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> seventy-sixth -> seventy-seventh`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
-- Keep ordinal continuity checklist growth explicit (`... -> seventy-seventh -> seventy-eighth`) so deterministic adjacent naming and token-length growth remain locked to single-step increments.
+Python project.
+
+## Operational Lessons Learned
+
+- When `gh run watch` renders no output, close CI deterministically by querying exact run metadata with `gh run view --json databaseId,headSha,status,conclusion,name` or `gh api repos/<owner>/<repo>/actions/runs/<run_id>` and validating `headSha` matches the pushed commit.
+- For deterministic CI closure logs, capture both run id and head SHA in the same step so run-to-commit binding remains explicit in evidence.
+- For ordinal-token test discovery, remember code identifiers use underscore form (for example, `ninety_fifth`) while docs use hyphenated text (for example, `ninety-fifth`).
+- For deterministic adjacent nibble slices, keep each new token exactly one nibble longer than the prior token and mirror the same literal across tests, changelog, change-control, and AGENTS entries.
+- Keep ordinal continuity explicit with compact range notation instead of telescoping per-slice bullets; for example, record `third -> ... -> seventy-eighth` and call out only exceptional lexical boundaries.
+- For fast deterministic slice prep, use one anchor read near the latest nibble test and one anchor read in each governance file, then apply all additive updates in one patch to reduce drift risk.
+- When commit scope is intentionally repo-local, stage only governed files for that repo so unrelated helper-note edits remain uncommitted unless explicitly intended.
 - When a deterministic hardening stream becomes open-ended, define a release terminal slice in change control before closing so follow-up increments move to a newly scoped release instead of extending the current one indefinitely.
