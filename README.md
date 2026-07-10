@@ -88,3 +88,4 @@ Python project.
 - Treat job-level `Complete job` lines in `gh run watch` as near-final but still verify run-level completion once via API because status propagation can lag briefly.
 - When terminal output retrieval truncates or mixes historical chunks, keep exact-SHA CI evidence anchored to the current `RUN_ID` and verify that run directly via `gh api`.
 - If `get_terminal_output` returns a path to a spill file, read that file and anchor closure evidence on the latest `HEAD=` and `RUN_ID=` block to avoid mixing prior slice logs.
+- If `gh run watch` returns immediately with "already completed", treat that as valid closure for the mapped run id and keep the same run-id evidence fields in the transcript.
