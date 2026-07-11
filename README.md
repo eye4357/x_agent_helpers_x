@@ -110,3 +110,4 @@ Python project.
 - For prompt-policy route-aware slices, resolve target provider from `--model-route` only when explicit `--target-provider` is absent, and keep `PROMPT_POLICY_CHECK` output fields unchanged so downstream parsers remain stable.
 - For x_trigger_prompt_x launcher reliability on Windows, start the child PowerShell with `-NoProfile -NonInteractive -ExecutionPolicy Bypass` plus strict error/confirm preferences to reduce recurring modal prompts that can steal automation focus.
 - If the spawned PowerShell window opens and closes instantly, add `-NoExit` and resolve `x_trigger_prompt_x.py` to an absolute path before launch so path errors remain visible and do not silently terminate the run.
+- For trigger reliability handoff, keep two explicit launcher paths in docs: profile-file primary (`--profile-file`) and UIA-off fallback (`--disable-uia-scan`) so operators can switch deterministically when UIA activity detection false-positives.
