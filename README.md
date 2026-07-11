@@ -109,3 +109,4 @@ Python project.
 - For 0.5.0 compatibility-matrix surfaces, lock deterministic contract rows (sorted roles, stable metadata lines, explicit placeholder fields, and redacted target/host values) in helper tests before relying on CLI output for downstream automation.
 - For prompt-policy route-aware slices, resolve target provider from `--model-route` only when explicit `--target-provider` is absent, and keep `PROMPT_POLICY_CHECK` output fields unchanged so downstream parsers remain stable.
 - For x_trigger_prompt_x launcher reliability on Windows, start the child PowerShell with `-NoProfile -NonInteractive -ExecutionPolicy Bypass` plus strict error/confirm preferences to reduce recurring modal prompts that can steal automation focus.
+- If the spawned PowerShell window opens and closes instantly, add `-NoExit` and resolve `x_trigger_prompt_x.py` to an absolute path before launch so path errors remain visible and do not silently terminate the run.
