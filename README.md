@@ -88,5 +88,24 @@ Python project.
 - If `gh run watch` shows all jobs green but omits a final completion line, confirm closure with `gh api` on the same run id and require `status=completed` plus `conclusion=success`.
 - Treat job-level `Complete job` lines in `gh run watch` as near-final but still verify run-level completion once via API because status propagation can lag briefly.
 - When terminal output retrieval truncates or mixes historical chunks, keep exact-SHA CI evidence anchored to the current `RUN_ID` and verify that run directly via `gh api`.
+- For exact-SHA CI closure on dense run histories, prefer `gh run list --commit <sha> --limit 1` to get a single bound run id directly instead of filtering multi-row run lists in-shell.
 - If `get_terminal_output` returns a path to a spill file, read that file and anchor closure evidence on the latest `HEAD=` and `RUN_ID=` block to avoid mixing prior slice logs.
 - If `gh run watch` returns immediately with "already completed", treat that as valid closure for the mapped run id and keep the same run-id evidence fields in the transcript.
+- Treat the recurring GitHub Actions annotation about Node.js 20 deprecation (forced Node.js 24 for checkout/setup-python actions) as non-blocking telemetry when run-level status and conclusion are `completed/success`.
+- At the one-hundred-ninety-ninth to two-hundredth lexical boundary, keep the same gate/CI templates and enforce exactly +1 nibble token growth; only ordinal wording should change.
+- If VS Code task scaffolding leaves an untracked `.vscode/tasks.json` inside the target repo, keep deterministic slice commits clean by staging only the governed mirror files explicitly.
+- Periodically deduplicate repeated helper bullets (same guidance captured across adjacent slices) so operator scans stay fast and new lessons remain discoverable.
+- If a direct terminal run returns an empty output snapshot in this workspace, rerun the same gate/closure command via VS Code task execution to recover a complete deterministic transcript.
+- For full local-gate wrappers, `Push-Location` into the target repo first and run repo-relative test paths; workspace-root absolute `unittest discover` paths can resolve the wrong module import target and produce false attribute-regression errors.
+- If apply_patch reports an auto-corrected edit in a governed mirror file, immediately re-read the touched block and normalize ordinal continuity/indentation before gates; corrected context matching can introduce out-of-sequence or tab-indented bullets.
+- In x_trigger_prompt_x submit flow, do not wrap the entire post-Enter activity probe in a single suppress block; probe exceptions can skip fallback key dispatch, so treat probe failures as no-activity and still issue deterministic Enter/Return retries.
+- When the user redirects from low-value invariant extension to leadership planning, stop the invariant stream immediately and produce a scoped execution plan with acceptance gates, slices, risks, and stop conditions.
+- For 0.5.0 doc-first slices, lock route names, privacy-label semantics, and compatibility-matrix fields in strategy docs before coding so subsequent Codex 5.3 implementation stays deterministic and acceptance-aligned.
+- For 0.5.0 config-validation slices, add required `model_routes` and `privacy_label` checks in `load_config` first, then extend the fixture and focused tests so deterministic planners remain behavior-stable while contracts tighten.
+- For 0.5.0 route-resolution slices, keep resolution logic pure (`route -> role -> model`) and prove config-only switching via fixture mutation tests before introducing new CLI surfaces.
+- For 0.5.0 CLI-surface slices, add the pure helper first, then wire one new flag and lock deterministic headers/count/order tests to keep behavior stable while scope expands.
+- For 0.5.0 policy slices, codify the allow/warn/block matrix as a pure helper with strict label/provider validation first, then add CLI entry points in a later isolated slice.
+- For prompt-policy-check surfaces, keep output contract fixed (`PROMPT_POLICY_CHECK` header plus label/provider/decision/message lines) and gate optional nonzero exits behind an explicit `--fail-on-policy-block` flag.
+- For 0.5.0 compatibility-matrix surfaces, lock deterministic contract rows (sorted roles, stable metadata lines, explicit placeholder fields, and redacted target/host values) in helper tests before relying on CLI output for downstream automation.
+- For prompt-policy route-aware slices, resolve target provider from `--model-route` only when explicit `--target-provider` is absent, and keep `PROMPT_POLICY_CHECK` output fields unchanged so downstream parsers remain stable.
+- For x_trigger_prompt_x launcher reliability on Windows, start the child PowerShell with `-NoProfile -NonInteractive -ExecutionPolicy Bypass` plus strict error/confirm preferences to reduce recurring modal prompts that can steal automation focus.
