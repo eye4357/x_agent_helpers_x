@@ -11,6 +11,7 @@ Python project.
 - When adding a new runtime guard flag to x_trigger_prompt_x, wire it through all launcher paths in one slice (interactive prompt, options object, child-window env handoff, and `--...` trigger args) so main-window and spawned-window executions stay behavior-identical.
 - For single-flight transition guards, keep both edge paths tested: active-edge completion and timeout fallback (`single_flight_timeout_seconds=0`), so anti-stacking protection does not regress when activity detection is noisy.
 - For operator confidence on new runtime guards, mirror key guard values in startup logs (for example single-flight timeout) and lock that output with a focused header test so launcher/runtime tuning is externally visible.
+- For transition-guard tuning, emit and monitor end-of-run counters (activity-edge completions vs timeout fallbacks) so timeout increases are based on observed behavior rather than guesswork.
 - For deterministic CI closure logs, capture both run id and head SHA in the same step so run-to-commit binding remains explicit in evidence.
 - For ordinal-token test discovery, remember code identifiers use underscore form (for example, `ninety_fifth`) while docs use hyphenated text (for example, `ninety-fifth`).
 - For deterministic adjacent nibble slices, keep each new token exactly one nibble longer than the prior token and mirror the same literal across tests, changelog, change-control, and AGENTS entries.
