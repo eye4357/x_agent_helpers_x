@@ -113,3 +113,4 @@ Python project.
 - For trigger reliability handoff, keep two explicit launcher paths in docs: profile-file primary (`--profile-file`) and UIA-off fallback (`--disable-uia-scan`) so operators can switch deterministically when UIA activity detection false-positives.
 - For x_trigger_prompt_x operator docs, keep runnable examples aligned to the full Prompt a1 payload (not abbreviated prompt text) so copy/paste runs preserve the deterministic guardrails and halt semantics.
 - For x_trigger_prompt_x profile compatibility, treat calibrator outputs with both absolute and ratio click fields as valid and normalize to one mode (prefer ratios unless CLI explicitly selects absolute) so profile-file runs remain no-touch and avoid argparse mutual-exclusion failures.
+- When operator docs become inscrutable from repeated flag examples, move the prompt and branch logic into a single interactive launcher script, then make the README route all normal use cases through that script.
