@@ -6,7 +6,8 @@ Python project.
 
 - In chat-composer focus verification, avoid immediate duplicate clicks on the same candidate point; use a single click plus a short UIA re-check to reduce accidental text selection and visible cursor jump.
 - When `gh run watch` renders no output, close CI deterministically by querying exact run metadata with `gh run view --json databaseId,headSha,status,conclusion,name` or `gh api repos/<owner>/<repo>/actions/runs/<run_id>` and validating `headSha` matches the pushed commit.
-- If terminal control-character injection corrupts the first PowerShell token during redirected `gh` captures, retry with a leading statement delimiter (`;`) so the injected prefix is isolated and the real command still runs.
+- For x_trigger_prompt_x calibration reliability, capture the stop-button template only while Copilot is actively generating so `stop_button_template.png` reflects the real enabled Stop state; idle capture can lock active-state detection on the wrong icon.
+- If the run-level Actions endpoint appears stale for a mapped run id, confirm exact-SHA closure from the same run's jobs endpoint and require `status=completed` plus `conclusion=success` on the quality gate job.
 - For deterministic CI closure logs, capture both run id and head SHA in the same step so run-to-commit binding remains explicit in evidence.
 - For ordinal-token test discovery, remember code identifiers use underscore form (for example, `ninety_fifth`) while docs use hyphenated text (for example, `ninety-fifth`).
 - For deterministic adjacent nibble slices, keep each new token exactly one nibble longer than the prior token and mirror the same literal across tests, changelog, change-control, and AGENTS entries.
@@ -102,17 +103,3 @@ Python project.
 - In x_trigger_prompt_x submit flow, do not wrap the entire post-Enter activity probe in a single suppress block; probe exceptions can skip fallback key dispatch, so treat probe failures as no-activity and still issue deterministic Enter/Return retries.
 - When the user redirects from low-value invariant extension to leadership planning, stop the invariant stream immediately and produce a scoped execution plan with acceptance gates, slices, risks, and stop conditions.
 - For 0.5.0 doc-first slices, lock route names, privacy-label semantics, and compatibility-matrix fields in strategy docs before coding so subsequent Codex 5.3 implementation stays deterministic and acceptance-aligned.
-- For 0.5.0 config-validation slices, add required `model_routes` and `privacy_label` checks in `load_config` first, then extend the fixture and focused tests so deterministic planners remain behavior-stable while contracts tighten.
-- For 0.5.0 route-resolution slices, keep resolution logic pure (`route -> role -> model`) and prove config-only switching via fixture mutation tests before introducing new CLI surfaces.
-- For 0.5.0 CLI-surface slices, add the pure helper first, then wire one new flag and lock deterministic headers/count/order tests to keep behavior stable while scope expands.
-- For 0.5.0 policy slices, codify the allow/warn/block matrix as a pure helper with strict label/provider validation first, then add CLI entry points in a later isolated slice.
-- For prompt-policy-check surfaces, keep output contract fixed (`PROMPT_POLICY_CHECK` header plus label/provider/decision/message lines) and gate optional nonzero exits behind an explicit `--fail-on-policy-block` flag.
-- For 0.5.0 compatibility-matrix surfaces, lock deterministic contract rows (sorted roles, stable metadata lines, explicit placeholder fields, and redacted target/host values) in helper tests before relying on CLI output for downstream automation.
-- For prompt-policy route-aware slices, resolve target provider from `--model-route` only when explicit `--target-provider` is absent, and keep `PROMPT_POLICY_CHECK` output fields unchanged so downstream parsers remain stable.
-- For x_trigger_prompt_x launcher reliability on Windows, start the child PowerShell with `-NoProfile -NonInteractive -ExecutionPolicy Bypass` plus strict error/confirm preferences to reduce recurring modal prompts that can steal automation focus.
-- If the spawned PowerShell window opens and closes instantly, add `-NoExit` and resolve `x_trigger_prompt_x.py` to an absolute path before launch so path errors remain visible and do not silently terminate the run.
-- For trigger reliability handoff, keep two explicit launcher paths in docs: profile-file primary (`--profile-file`) and UIA-off fallback (`--disable-uia-scan`) so operators can switch deterministically when UIA activity detection false-positives.
-- For x_trigger_prompt_x operator docs, keep runnable examples aligned to the full Prompt a1 payload (not abbreviated prompt text) so copy/paste runs preserve the deterministic guardrails and halt semantics.
-- For x_trigger_prompt_x profile compatibility, treat calibrator outputs with both absolute and ratio click fields as valid and normalize to one mode (prefer ratios unless CLI explicitly selects absolute) so profile-file runs remain no-touch and avoid argparse mutual-exclusion failures.
-- When operator docs become inscrutable from repeated flag examples, move the prompt and branch logic into a single interactive launcher script, then make the README route all normal use cases through that script.
-- For x_trigger_prompt_x active-state detection, UIA stop-button matches must also pass visibility/enabled/positive-geometry checks; name-only matches can pick up hidden stale controls and block idle submission forever.
