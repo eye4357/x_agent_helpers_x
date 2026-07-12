@@ -4,6 +4,7 @@ Python project.
 
 ## Operational Lessons Learned
 
+- When an editor-hosted automation loop can drive VS Code renderer memory upward, add a pre-submit working-set guard that stops the loop before the window reaches OOM territory.
 - If a submit helper probes and observes post-submit activity before returning to the outer loop, seed the outer single-flight guard from that observation; otherwise fast responses can finish before the loop sees an active edge and leave the guard waiting forever.
 - When adding completion gates to automation loops, keep dry-run paths exempt from signals that only real side effects can produce, and add a regression that runs more than one dry-run iteration.
 - In dry-run mode, keep single-flight edge counters telemetry-truthful by not recording synthetic activity as a real edge; if no-activity backoff should be skipped, gate that behavior explicitly on dry-run.
