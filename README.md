@@ -8,6 +8,7 @@ Python project.
 - When `gh run watch` renders no output, close CI deterministically by querying exact run metadata with `gh run view --json databaseId,headSha,status,conclusion,name` or `gh api repos/<owner>/<repo>/actions/runs/<run_id>` and validating `headSha` matches the pushed commit.
 - For x_trigger_prompt_x calibration reliability, capture the stop-button template only while Copilot is actively generating so `stop_button_template.png` reflects the real enabled Stop state; idle capture can lock active-state detection on the wrong icon.
 - If the run-level Actions endpoint appears stale for a mapped run id, confirm exact-SHA closure from the same run's jobs endpoint and require `status=completed` plus `conclusion=success` on the quality gate job.
+- When adding a new runtime guard flag to x_trigger_prompt_x, wire it through all launcher paths in one slice (interactive prompt, options object, child-window env handoff, and `--...` trigger args) so main-window and spawned-window executions stay behavior-identical.
 - For deterministic CI closure logs, capture both run id and head SHA in the same step so run-to-commit binding remains explicit in evidence.
 - For ordinal-token test discovery, remember code identifiers use underscore form (for example, `ninety_fifth`) while docs use hyphenated text (for example, `ninety-fifth`).
 - For deterministic adjacent nibble slices, keep each new token exactly one nibble longer than the prior token and mirror the same literal across tests, changelog, change-control, and AGENTS entries.
