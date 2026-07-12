@@ -4,6 +4,7 @@ Python project.
 
 ## Operational Lessons Learned
 
+- When adding completion gates to automation loops, keep dry-run paths exempt from signals that only real side effects can produce, and add a regression that runs more than one dry-run iteration.
 - For GUI prompt loops, never let elapsed timeout alone authorize the next submit; require a semantic/accessibility completion signal such as stable UIA output after the active edge ends.
 - In chat-composer focus verification, avoid immediate duplicate clicks on the same candidate point; use a single click plus a short UIA re-check to reduce accidental text selection and visible cursor jump.
 - When `gh run watch` renders no output, close CI deterministically by querying exact run metadata with `gh run view --json databaseId,headSha,status,conclusion,name` or `gh api repos/<owner>/<repo>/actions/runs/<run_id>` and validating `headSha` matches the pushed commit.
