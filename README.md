@@ -111,3 +111,4 @@ Python project.
 - For x_trigger_prompt_x launcher reliability on Windows, start the child PowerShell with `-NoProfile -NonInteractive -ExecutionPolicy Bypass` plus strict error/confirm preferences to reduce recurring modal prompts that can steal automation focus.
 - If the spawned PowerShell window opens and closes instantly, add `-NoExit` and resolve `x_trigger_prompt_x.py` to an absolute path before launch so path errors remain visible and do not silently terminate the run.
 - For trigger reliability handoff, keep two explicit launcher paths in docs: profile-file primary (`--profile-file`) and UIA-off fallback (`--disable-uia-scan`) so operators can switch deterministically when UIA activity detection false-positives.
+- For x_trigger_prompt_x operator docs, keep runnable examples aligned to the full Prompt a1 payload (not abbreviated prompt text) so copy/paste runs preserve the deterministic guardrails and halt semantics.
