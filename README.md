@@ -9,6 +9,7 @@ Python project.
 - In dry-run mode, keep single-flight edge counters telemetry-truthful by not recording synthetic activity as a real edge; if no-activity backoff should be skipped, gate that behavior explicitly on dry-run.
 - For guard-path condition splits, keep paired regressions for both sides of the branch (dry-run and non-dry-run) so later refactors do not preserve one behavior while silently dropping the other.
 - For timeout diagnostics in loop guards, lock cardinality explicitly: repeated guard cycles in a single pending transition should increment fallback counters once, not once per poll.
+- For operator-visible guard knobs, pair implementation logging with focused header regressions so startup telemetry (for example output-stable cycles) cannot silently disappear.
 - For GUI prompt loops, never let elapsed timeout alone authorize the next submit; require a semantic/accessibility completion signal such as stable UIA output after the active edge ends.
 - In chat-composer focus verification, avoid immediate duplicate clicks on the same candidate point; use a single click plus a short UIA re-check to reduce accidental text selection and visible cursor jump.
 - When `gh run watch` renders no output, close CI deterministically by querying exact run metadata with `gh run view --json databaseId,headSha,status,conclusion,name` or `gh api repos/<owner>/<repo>/actions/runs/<run_id>` and validating `headSha` matches the pushed commit.
