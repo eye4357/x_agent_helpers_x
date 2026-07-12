@@ -4,6 +4,10 @@ Python project.
 
 ## Operational Lessons Learned
 
+- If a submit helper probes and observes post-submit activity before returning to the outer loop, seed the outer single-flight guard from that observation; otherwise fast responses can finish before the loop sees an active edge and leave the guard waiting forever.
+- When adding completion gates to automation loops, keep dry-run paths exempt from signals that only real side effects can produce, and add a regression that runs more than one dry-run iteration.
+- In dry-run mode, keep single-flight edge counters telemetry-truthful by not recording synthetic activity as a real edge; if no-activity backoff should be skipped, gate that behavior explicitly on dry-run.
+- For guard-path condition splits, keep paired regressions for both sides of the branch (dry-run and non-dry-run) so later refactors do not preserve one behavior while silently dropping the other.
 - When UI icon detection destabilizes an automation loop, prefer an explicit response-ending marker plus input-only targeting calibration over trying to further tune brittle active-state icons.
 - For timeout diagnostics in loop guards, lock cardinality explicitly: repeated guard cycles in a single pending transition should increment fallback counters once, not once per poll.
 - For operator-visible guard knobs, pair implementation logging with focused header regressions so startup telemetry (for example output-stable cycles) cannot silently disappear.
